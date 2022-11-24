@@ -1,0 +1,75 @@
+.loginCard {
+    margin: auto;
+    width: 30%;
+}
+
+.loginLogo {
+    margin: auto;
+    width: 30%;
+}
+
+.loginTitle {
+    margin: auto;
+    width: 80%;
+}
+
+.loginInput {
+    margin: auto;
+    width: 80%;
+}
+
+.registerCard {
+    margin: auto;
+    width: 30%;
+}
+
+.registerLogo {
+    margin: auto;
+    width: 30%;
+}
+
+.registerTitle {
+    margin: auto;
+    width: 80%;
+}
+
+.registerInput {
+    margin: auto;
+    width: 80%;
+}
+
+.addMovieCard {
+    margin: auto;
+    width: 30%;
+}
+
+.addMovieLogo {
+    margin: auto;
+    width: 30%;
+}
+
+.addMovieTitle {
+    margin: auto;
+    width: 80%;
+}
+
+.addMovieInput {
+    margin: auto;
+    width: 80%;
+}
+
+.navBar {
+    background-color: #7b3000;
+    font-family: Times New Roman;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+.navBarLogo {
+    width: 15vh;
+    margin-top: 0.9vh;
+}

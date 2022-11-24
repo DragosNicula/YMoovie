@@ -3,33 +3,50 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { app } from '../../firebase.js'
+import { useNavigate } from 'react-router-dom';
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
-export function Login() {
+export function Login(props) {
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
+    const auth = getAuth(app);
+    const navigate = useNavigate();
 
     function loginUser() {
-        const auth = getAuth(app);
         signInWithEmailAndPassword(auth, userEmail, userPassword)
             .then((userCredentials) =>{
                 const user = userCredentials.user;
-                alert("Sign in complete!")
+                props.setStatusEmail(userEmail);
+                alert("Sign in complete!");
+                navigate("/home");
+                
             })
             .catch((error) => {
                 alert(error.message);
             });
     }
 
+    async function getData() { {/* Retreive data*/}
+        const db = getFirestore(app);
+        const docRef = doc(db, "userData", userEmail);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            props.setUserData(docSnap.data());
+        } else {
+        console.log("No such document!");
+        }
+    }
+    
     return(
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '70vh'}}>
+        <div className="loginCard">
             <br></br>
             <br></br>
-            <Card style={{ width: '40rem', height: '22.5rem'}}>
+            <Card>
                 <Card.Body>
                     <br></br>
-                    <img src={"images/logoMicNegru.png"} width={"30%"} />
+                    <img className="loginLogo" src={"images/logoMicNegru.png"} />
                     <br></br>
                     <br></br>
                     <Card.Title>
@@ -38,7 +55,7 @@ export function Login() {
                         </h3>
                     </Card.Title>
                     <br></br>
-                    <div style={{margin: "auto", width: "75%"}}>
+                    <div className="loginInput">
                         <InputGroup className="mb-3">
                             <InputGroup.Text>Email</InputGroup.Text>
                             <Form.Control type="text" onChange={(event) => setUserEmail(event.target.value)}/>
@@ -48,7 +65,7 @@ export function Login() {
                             <Form.Control type="password" onChange={(event) => setUserPassword(event.target.value)}/>
                         </InputGroup>
                     </div>
-                    <Button style={{marginTop: "1rem", backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => loginUser()}>Sign In</Button>
+                    <Button style={{backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => {loginUser(); getData()}}>Login</Button>
                 </Card.Body>
             </Card>
         </div>

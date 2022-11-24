@@ -5,54 +5,88 @@ import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../../firebase.js';
+import { useNavigate } from 'react-router-dom';
+import { getFirestore, setDoc, doc, getDoc } from 'firebase/firestore';
 
 
 
-export function Register() {
-    const [userEmail, setUserEmail] = useState('');
-    const [userPassword, setUserPassword] = useState('');
-
-    function registerUser() {
-        const auth = getAuth(app);
-        createUserWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            alert("Register complete!");
-        })
-        .catch((error) => {
-            alert(error.message);
+export function Register(props) {
+    const [userEmail, setUserEmail] = useState(null);
+    const [userPassword, setUserPassword] = useState(null);
+    const [userName, setUserName] = useState(null);
+    const [firstName, setFirstName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const navigate = useNavigate();
+    
+    async function updateDataBase() {
+        const db = getFirestore(app);
+        const newDoc = await setDoc(doc(db, "userData", userEmail), {
+            UserName: userName,
+            FirstName: firstName,
+            LastName: lastName,
+            Email: userEmail
         });
     }
 
+    async function getData() { {/* Retreive data*/}
+        const db = getFirestore(app);
+        const docRef = doc(db, "userData", userEmail);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            props.setUserData(docSnap.data());
+        } else {
+            console.log("No such document!");
+        }
+    }
+
+    function registerUser() {
+        const auth = getAuth(app);
+        if (userEmail !== null && userPassword !== null && userName !== null && firstName !== null && lastName !== null) {
+            createUserWithEmailAndPassword(auth, userEmail, userPassword)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                props.setStatusEmail(userEmail);
+                alert("Register complete!");
+                navigate("/home");
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+            updateDataBase();
+            getData();
+        } else {
+            alert('All fields must be filled!');
+        }
+    }
 
     return(
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '70vh'}}>
+        <div className="registerCard">
             <br></br>
             <br></br>
-            <Card style={{ width: '40rem', height: '33rem'}}>
+            <Card >
                 <Card.Body>
                     <br></br>
-                    <img src={"images/logoMicNegru.png"} width={"30%"} />
+                    <img className="registerLogo" src={"images/logoMicNegru.png"} />
                     <br></br>
                     <br></br>
-                    <Card.Title>
+                    <Card.Title className="registerTitle">
                         <h3>
                             <strong>Create Your YMoovie Account</strong>
                         </h3>
                     </Card.Title>
                     <br></br>
-                    <div style={{margin: "auto", width: "75%"}}>
+                    <div className="registerInput">
                         <InputGroup className="mb-3">
                             <InputGroup.Text>Username</InputGroup.Text>
-                            <Form.Control type="text"/>
+                            <Form.Control type="text" onChange={(event) => setUserName(event.target.value)}/>
                         </InputGroup>
                         <InputGroup className="mb-3">
                             <InputGroup.Text>First Name</InputGroup.Text>
-                            <Form.Control type="text"/>
+                            <Form.Control type="text" onChange={(event) => setFirstName(event.target.value)}/>
                         </InputGroup>
                         <InputGroup className="mb-3">
                             <InputGroup.Text>Last Name</InputGroup.Text>
-                            <Form.Control type="text"/>
+                            <Form.Control type="text" onChange={(event) => setLastName(event.target.value)}/>
                         </InputGroup>
                         <InputGroup className="mb-3">
                             <InputGroup.Text>Email</InputGroup.Text>
@@ -63,7 +97,7 @@ export function Register() {
                             <Form.Control type="password" onChange={(event) => setUserPassword(event.target.value)}/>
                         </InputGroup>
                     </div>
-                    <Button style={{marginTop: "1rem", backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => registerUser()}>Register</Button>
+                    <Button style={{backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => registerUser()}>Register</Button>
                 </Card.Body>
             </Card>
         </div>
