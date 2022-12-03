@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import { app } from '../../firebase.js';
+import '../../App.css';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+
 
 export function Home() {
+    const storage = getStorage(app);
+    const navigate = useNavigate();
 
+    function redirect() {
+        navigate("/topRated")
+    }
+    
     return(
-        <div>
-            <h1>Welcome to YMoovie</h1>
-            <h2>Application Is Under Construction</h2>
-            <img src={"images/dog.jpg"} width="50%" height="50%"/>
+     <div>
+        <div className="background">
+            <div className="homeComponent">
+                <div style={{fontSize: "60px"}}>Welcome to YMOOVIE</div>
+                <Button onClick={() => redirect()} style={{backgroundColor: "#00CFFF", borderColor: "#00CFFF", marginTop: "10px"}}>LET'S WATCH SOME MOVIES FROM OUR TOP RATED USERS</Button>
+            </div>
         </div>
+     </div>
+    
     )
 }

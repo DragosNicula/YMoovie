@@ -18,7 +18,7 @@ export function LogOut() {
 
     return(
         <div>
-           <Button style={{marginTop: "1vh", backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => logOut()}>SignOut</Button>
+           <Button style={{marginTop: "50%", backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => logOut()}>LogOut</Button>
         </div>
     )
 }
