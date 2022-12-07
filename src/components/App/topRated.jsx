@@ -10,10 +10,10 @@ export function TopRated() {
     const db = getFirestore(app);
     const navigate = useNavigate();
     const [aky, setAky] = useState(JSON.parse(window.localStorage.getItem('aky')));   /* aky */
-    const [AkyValue, setAkyValue] = useState(3);
+    const [akyValue, setAkyValue] = useState(3);
     const updateFieldsAky = doc(db, "userData", aky['Email']);
 
-    const [darkLady, setdarkLady] = useState(JSON.parse(window.localStorage.getItem('dl')));   /* darklady */
+    const [darkLady, setDarkLady] = useState(JSON.parse(window.localStorage.getItem('dl')));   /* darklady */
     const [darkLadyValue, setDarkLadyValue] = useState(3);
     const updateFieldsDarkLady = doc(db, "userData", darkLady['Email']);
 
@@ -21,158 +21,170 @@ export function TopRated() {
     const [yellowSnowValue, setYellowSnowValue] = useState(3);
     const updateFieldsYellowSnow = doc(db, "userData", yellowSnow['Email']);
     
-    async function updateRatingAky() {
+    async function updateRatingAky(newValue) {
         await updateDoc(updateFieldsAky, {
             "NumberOfVotes": aky['NumberOfVotes'] + 1,
-            "Rating": (aky['Rating'] + AkyValue) / 1.7
+            "SumOfVotes": aky['SumOfVotes'] + newValue,
+            "Rating": aky['SumOfVotes'] / aky['NumberOfVotes']
         });
     }
 
-    async function updateRatingDarkLady() {
+    async function updateRatingDarkLady(newValue) {
         await updateDoc(updateFieldsDarkLady, {
             "NumberOfVotes": darkLady['NumberOfVotes'] + 1,
-            "Rating": (darkLady['Rating'] + darkLadyValue) / 1.7
+            "SumOfVotes": darkLady['SumOfVotes'] + newValue,
+            "Rating": darkLady['SumOfVotes'] / darkLady['NumberOfVotes']
         });
     }
 
-    async function updateRatingYellowSnow() {
+    async function updateRatingYellowSnow(newValue) {
         await updateDoc(updateFieldsYellowSnow, {
             "NumberOfVotes": yellowSnow['NumberOfVotes'] + 1,
-            "Rating": (yellowSnow['Rating'] + yellowSnowValue) / 1.7
+            "SumOfVotes": yellowSnow['SumOfVotes'] + newValue,
+            "Rating": yellowSnow['SumOfVotes'] / yellowSnow['NumberOfVotes']
         });
     }
 
     return(
         <div className="background">
-            <div style={{color: 'white', marginTop: "8%", marginLeft: "43%", position: "absolute"}} >
-                <h1>Top Rated Users</h1>
+            <div style={{ fontFamily: "DM-Sans", fontWeight: "bold", fontSize: "35px", color: 'white', marginTop: "9%", marginLeft: "9.7%", position: "absolute"}} >
+                TOP RATED USERS
             </div>
             <div className="topRated">
-            <Player fluid={false} width={"500%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Faky%40gmail.com%2F123-854eca6a-872a-44d5-a902-88e179250766?alt=media&token=e49f914f-7a6a-4237-a829-1b537df2e62e"}>
+            <Player fluid={false} width={"20%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Faky%40gmail.com%2F123-854eca6a-872a-44d5-a902-88e179250766?alt=media&token=e49f914f-7a6a-4237-a829-1b537df2e62e"}>
                 <BigPlayButton position="center" />
             </Player>
-                <div style={{marginBottom: "5%", marginTop: "5%", marginLeft: "10%", marginRight: "4%"}}>
-                    <div>
-                        <h5>Creator</h5>
+                <div style={{width: "80%"}}>
+                    <div style={{ color: "#cfc9b3", fontFamily: "DM Sans", display: "flex", marginLeft: "10%", marginTop: "2%", borderBottom: "3px solid #cfc9b3", fontSize: "35px"}}>
+                        <div style={{marginRight: "19%", marginLeft: "7%", marginBottom: "2%"}}>
+                            Creator
+                        </div>
+                        <div style={{marginRight: "17%", whiteSpace: 'nowrap' }}>
+                            User Rating
+                        </div>
+                        <div style={{ whiteSpace: 'nowrap' }}>
+                            Rate This Movie
+                        </div>
                     </div>
-                    <div>
-                        <h1>{aky['UserName']}</h1>
+                    <div style={{display: "flex", marginLeft: "20%" , marginBottom: "2%", fontSize: "30px"}}>
+                        <div style={{marginRight: "7.5%", marginLeft: "-1%", marginTop: "2%"}}>
+                            {aky['UserName']}
+                        </div>
+                        <div style={{marginRight: "3.5%", marginLeft: "23%", marginTop: "2%"}}>
+                            {aky['Rating'].toFixed(2)}
+                        </div>
+                        <div style={{marginLeft: "30%", marginTop: "2%"}}>
+                            <Box sx={{'& > legend': { mt: 3 }}}>
+                                    <Rating
+                                        name="simple-controlled"
+                                        value={akyValue}
+                                        onChange={(event, newValue) => {
+                                        window.localStorage.setItem('newValue', JSON.stringify(newValue));
+                                        updateRatingAky(newValue);
+                                        alert("Vote Submitted");
+                                        navigate("/home");
+                                        }}
+                                    />
+                            </Box>
+                        </div>
                     </div>
                 </div>
-                <div style={{marginTop: "5%", marginLeft: "15%"}}>
-                    <div>
-                        <h5>User Rating</h5>
+            </div>
+            <br></br>
+            <br></br>
+            <br></br> 
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>                
+            <div className="topRated">
+            <Player fluid={false} width={"20%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fdarklady%40gmail.com%2Fasdasda-13639cb2-33cf-4713-95d4-42efa1bc8fd3?alt=media&token=47278f48-448a-4338-9c27-6a7ca28ec1b5"}>
+                <BigPlayButton position="center" />
+            </Player>
+                <div style={{width: "80%"}}>
+                    <div style={{ color: "#cfc9b3", fontFamily: "DM Sans", display: "flex", marginLeft: "10%", marginTop: "2%", borderBottom: "3px solid #cfc9b3", fontSize: "35px"}}>
+                        <div style={{marginRight: "19%", marginLeft: "7%", marginBottom: "2%"}}>
+                            Creator
+                        </div>
+                        <div style={{marginRight: "17%", whiteSpace: 'nowrap' }}>
+                            User Rating
+                        </div>
+                        <div style={{ whiteSpace: 'nowrap' }}>
+                            Rate This Movie
+                        </div>
                     </div>
-                    <div>
-                        <h5>{aky['Rating'].toFixed(2)}</h5>
-                    </div>
-                </div>
-                <div style={{marginTop: "5%", marginLeft: "15%", marginRight: "5%"}}>
-                    <div >
-                        <h5>Rate this moovie</h5>
-                    </div>
-                    <div>
-                        <Box sx={{'& > legend': { mt: 3 }}}>
-                                <Rating
-                                    name="simple-controlled"
-                                    value={AkyValue}
-                                    onChange={(event, newValue) => {
-                                    setAkyValue(newValue);
-                                    updateRatingAky();
-                                    alert("Vote Submitted");
-                                    navigate("/home");
-                                    }}
-                                />
-                        </Box>
+                    <div style={{display: "flex", marginLeft: "20%" , marginBottom: "2%", fontSize: "30px"}}>
+                        <div style={{marginRight: "3.5%", marginLeft: "-4.5%", marginTop: "2%"}}>
+                            {darkLady['UserName']}
+                        </div>
+                        <div style={{marginRight: "3.6%", marginLeft: "23%", marginTop: "2%"}}>
+                            {darkLady['Rating'].toFixed(2)}
+                        </div>
+                        <div style={{marginLeft: "30%", marginTop: "2%"}}>
+                            <Box sx={{'& > legend': { mt: 3 }}}>
+                                    <Rating
+                                        name="simple-controlled"
+                                        value={darkLadyValue}
+                                        onChange={(event, newValue) => {
+                                        updateRatingDarkLady(newValue);
+                                        alert("Vote Submitted");
+                                        navigate("/home");
+                                        }}
+                                    />
+                            </Box>
+                        </div>
                     </div>
                 </div>
             </div>
             <br></br>
             <br></br>
             <br></br>
-            <br></br>                 
-            <div className="topRated" style={{marginTop: "25%"}}>
-            <Player fluid={false} width={"500%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fdarklady%40gmail.com%2Fasdasda-13639cb2-33cf-4713-95d4-42efa1bc8fd3?alt=media&token=47278f48-448a-4338-9c27-6a7ca28ec1b5"}>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <div className="topRated">
+            <Player fluid={false} width={"20%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fyellowsnowman%40gmail.com%2Faaa-7b1d9a08-140e-4ba4-ac5d-2c13b9d233a5?alt=media&token=ab9f82ff-c0f6-4f6e-a7c2-827e705f9933"}>
                 <BigPlayButton position="center" />
             </Player>
-                <div style={{marginBottom: "5%",marginTop: "5%", marginLeft: "8%"}}>
-                    <div>
-                        <h5>Creator</h5>
+                <div style={{width: "80%"}}>
+                    <div style={{ color: "#cfc9b3", fontFamily: "DM Sans", display: "flex", marginLeft: "10%", marginTop: "2%", borderBottom: "3px solid #cfc9b3", fontSize: "35px"}}>
+                        <div style={{marginRight: "19%", marginLeft: "7%", marginBottom: "2%"}}>
+                            Creator
+                        </div>
+                        <div style={{marginRight: "17%", whiteSpace: 'nowrap' }}>
+                            User Rating
+                        </div>
+                        <div style={{ whiteSpace: 'nowrap' }}>
+                            Rate This Movie
+                        </div>
                     </div>
-                    <div>
-                        <h1>{darkLady['UserName']}</h1>
-                    </div>
-                </div>
-                <div style={{marginTop: "5%", marginLeft: "15%"}}>
-                    <div>
-                        <h5>User Rating</h5>
-                    </div>
-                    <div>
-                        <h5>{darkLady['Rating'].toFixed(2)}</h5>
-                    </div>
-                </div>
-                <div style={{marginTop: "5%", marginLeft: "15%", marginRight: "5%"}}>
-                    <div >
-                        <h5>Rate this moovie</h5>
-                    </div>
-                    <div>
-                        <Box sx={{'& > legend': { mt: 3 }}}>
+                    <div style={{display: "flex", marginLeft: "20%" , marginBottom: "2%", fontSize: "30px"}}>
+                        <div style={{marginRight: "-1%", marginLeft: "-9%", marginTop: "2%"}}>
+                            {yellowSnow['UserName']}
+                        </div>
+                        <div style={{marginRight: "3.6%", marginLeft: "23%", marginTop: "2%"}}>
+                            {yellowSnow['Rating'].toFixed(2)}
+                        </div>
+                        <div style={{marginLeft: "30%", marginTop: "2%"}}>
+                            <Box sx={{'& > legend': { mt: 3 }}}>
                                 <Rating
-                                    name="simple-controlled"
-                                    value={darkLadyValue}
-                                    onChange={(event, newValue) => {
-                                    setDarkLadyValue(newValue);
-                                    updateRatingDarkLady();
-                                    alert("Vote Submitted");
-                                    navigate("/home");
-                                    }}
-                                />
-                        </Box>
-                    </div>
-                </div>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <div className="topRated" style={{marginTop: "35%"}}>
-            <Player fluid={false} width={"500%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2FYellowSnowMan%40gmail.com%2FAc%20Vallhalla-2667d9e3-678e-4375-81f2-2df3c0737b3c?alt=media&token=b5745be9-fe8a-45b1-8e76-c070395f93e5"}>
-                <BigPlayButton position="center" />
-            </Player>
-                <div style={{marginBottom: "5%", marginTop: "5%", marginLeft: "5%", marginRight: "-5%"}}>
-                    <div>
-                        <h5>Moovie made by</h5>
-                    </div>
-                    <div>
-                        <h1>{yellowSnow['UserName']}</h1>
-                    </div>
-                </div>
-                <div style={{marginTop: "5%", marginLeft: "15%"}}>
-                    <div>
-                        <h5>User Rating</h5>
-                    </div>
-                    <div>
-                        <h5>{yellowSnow['Rating'].toFixed(2)}</h5>
-                    </div>
-                </div>
-                <div style={{marginTop: "5%", marginLeft: "15%", marginRight: "5%"}}>
-                    <div >
-                        <h5>Rate this moovie</h5>
-                    </div>
-                    <div>
-                        <Box sx={{'& > legend': { mt: 3 }}}>
-                                <Rating
-                                    name="simple-controlled"
-                                    value={yellowSnowValue}
-                                    onChange={(event, newValue) => {
-                                    setYellowSnowValue(newValue);
-                                    updateRatingYellowSnow();
-                                    alert("Vote Submitted");
-                                    navigate("/home");
-                                    }}
-                                />
-                        </Box>
+                                        name="simple-controlled"
+                                        value={yellowSnowValue}
+                                        onChange={(event, newValue) => {
+                                        updateRatingYellowSnow(newValue);
+                                        alert("Vote Submitted");
+                                        navigate("/home");
+                                        }}
+                                    />
+                            </Box>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -45,7 +45,6 @@ export function Login(props) {
             <div className="loginCard">
                 <Card>
                     <Card.Body>
-                        <br></br>
                         <img className="loginLogo" src={logo} />
                         <br></br>
                         <br></br>
@@ -65,7 +64,7 @@ export function Login(props) {
                                 <Form.Control type="password" onChange={(event) => setUserPassword(event.target.value)}/>
                             </InputGroup>
                         </div>
-                        <Button style={{backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => {loginUser(); getData()}}>Login</Button>
+                        <Button style={{backgroundColor: "#ef5651", borderColor: "#ef5651"}} onClick={() => {loginUser(); getData()}}>Login</Button>
                     </Card.Body>
                 </Card>
             </div>

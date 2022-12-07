@@ -27,7 +27,8 @@ export function Register(props) {
             LastName: lastName,
             Email: userEmail,
             Rating: 3,
-            NumberOfVotes: 5
+            NumberOfVotes: 1,
+            SumOfVotes: 3
         });
     }
 
@@ -67,7 +68,6 @@ export function Register(props) {
             <div className="registerCard">
                 <Card >
                     <Card.Body>
-                        <br></br>
                         <img className="registerLogo" src={logo} />
                         <br></br>
                         <br></br>
@@ -99,7 +99,7 @@ export function Register(props) {
                                 <Form.Control type="password" onChange={(event) => setUserPassword(event.target.value)}/>
                             </InputGroup>
                         </div>
-                        <Button style={{backgroundColor: "#00CFFF", borderColor: "#00CFFF"}} onClick={() => registerUser()}>Register</Button>
+                        <Button style={{backgroundColor: "#ef5651", borderColor: "#ef5651"}} onClick={() => registerUser()}>Register</Button>
                     </Card.Body>
                 </Card>
             </div>
