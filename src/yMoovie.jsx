@@ -11,6 +11,8 @@ import { app } from './firebase.js'
 import { UserProfile } from './components/User/userProfile'
 import { NavBar } from './components/App/navBar'
 import './App.css';
+import "@fontsource/montserrat";
+import "@fontsource/dm-sans"
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 export default function YMoovie() {
@@ -32,7 +34,7 @@ export default function YMoovie() {
         const db = getFirestore(app);
         const docRef1 = doc(db, "userData", 'aky@gmail.com');
         const docRef2 = doc(db, "userData", 'darklady@gmail.com');
-        const docRef3 = doc(db, "userData", 'YellowSnowMan@gmail.com');
+        const docRef3 = doc(db, "userData", 'yellowsnowman@gmail.com');
         const docSnap1 = await getDoc(docRef1);
         const docSnap2 = await getDoc(docRef2);
         const docSnap3 = await getDoc(docRef3);
