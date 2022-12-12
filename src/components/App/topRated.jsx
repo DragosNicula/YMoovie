@@ -9,6 +9,7 @@ import { Player, BigPlayButton } from 'video-react';
 export function TopRated() {
     const db = getFirestore(app);
     const navigate = useNavigate();
+
     const [aky, setAky] = useState(JSON.parse(window.localStorage.getItem('aky')));   /* aky */
     const [akyValue, setAkyValue] = useState(3);
     const updateFieldsAky = doc(db, "userData", aky['Email']);
@@ -17,9 +18,9 @@ export function TopRated() {
     const [darkLadyValue, setDarkLadyValue] = useState(3);
     const updateFieldsDarkLady = doc(db, "userData", darkLady['Email']);
 
-    const [yellowSnow, setYellowSnow] = useState(JSON.parse(window.localStorage.getItem('yellowsnow')));   /* yellowSnow */
-    const [yellowSnowValue, setYellowSnowValue] = useState(3);
-    const updateFieldsYellowSnow = doc(db, "userData", yellowSnow['Email']);
+    const [snowMan, setsnowMan] = useState(JSON.parse(window.localStorage.getItem('yellowsnow')));   /* snowMan */
+    const [snowManValue, setSnowManValue] = useState(3);
+    const updateFieldsSnowMan = doc(db, "userData", snowMan['Email']);
     
     async function updateRatingAky(newValue) {
         await updateDoc(updateFieldsAky, {
@@ -37,153 +38,147 @@ export function TopRated() {
         });
     }
 
-    async function updateRatingYellowSnow(newValue) {
-        await updateDoc(updateFieldsYellowSnow, {
-            "NumberOfVotes": yellowSnow['NumberOfVotes'] + 1,
-            "SumOfVotes": yellowSnow['SumOfVotes'] + newValue,
-            "Rating": yellowSnow['SumOfVotes'] / yellowSnow['NumberOfVotes']
+    async function updateRatingSnowMan(newValue) {
+        await updateDoc(updateFieldsSnowMan, {
+            "NumberOfVotes": snowMan['NumberOfVotes'] + 1,
+            "SumOfVotes": snowMan['SumOfVotes'] + newValue,
+            "Rating": snowMan['SumOfVotes'] / snowMan['NumberOfVotes']
         });
     }
 
     return(
-        <div className="background">
-            <div style={{ fontFamily: "DM-Sans", fontWeight: "bold", fontSize: "35px", color: 'white', marginTop: "9%", marginLeft: "9.7%", position: "absolute"}} >
-                TOP RATED USERS
-            </div>
-            <div className="topRated">
-            <Player fluid={false} width={"20%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Faky%40gmail.com%2F123-854eca6a-872a-44d5-a902-88e179250766?alt=media&token=e49f914f-7a6a-4237-a829-1b537df2e62e"}>
-                <BigPlayButton position="center" />
-            </Player>
-                <div style={{width: "80%"}}>
-                    <div style={{ color: "#cfc9b3", fontFamily: "DM Sans", display: "flex", marginLeft: "10%", marginTop: "2%", borderBottom: "3px solid #cfc9b3", fontSize: "35px"}}>
-                        <div style={{marginRight: "19%", marginLeft: "7%", marginBottom: "2%"}}>
-                            Creator
+        <div>
+            <div className="topRated"> 
+                <div style={{marginLeft: '75px'}}>
+                    <div className='topRatedTitle'>
+                        TOP RATED USERS
+                    </div>
+                    <div className='movie'>
+                        <Player fluid={false} src={'https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Faky%40gmail.com%2Fnfs-9da66b84-3c4f-4602-ab55-fab0eecdd626?alt=media&token=ec77099c-61df-4ae0-be15-835482b89a1f'}>
+                            <BigPlayButton position="center" />
+                        </Player>
+                    </div>
+                    <div className='center'>
+                        <div className="movieBorder">
                         </div>
-                        <div style={{marginRight: "17%", whiteSpace: 'nowrap' }}>
-                            User Rating
+                        <div className='movieText'>
+                            <div className='movieTextCreator'>
+                                CREATOR
+                            </div>
+                            <div className='movieTextUserRating'>
+                                USER RATING
+                            </div>
+                            <div className='movieTextRateMovie'>
+                                RATE THIS MOVIE
+                            </div>
                         </div>
-                        <div style={{ whiteSpace: 'nowrap' }}>
-                            Rate This Movie
+                        <div className='movieTextWhite'>
+                            <div className='movieTextUsername'>
+                                {aky['UserName']}
+                            </div>
+                            <div className='movieTextRating'>
+                                {aky['Rating'].toPrecision(3)}
+                            </div>
+                            <div className='movieRatingSystem'>
+                                <Box sx={{'& > legend': { mt: 3 }}}>
+                                        <Rating
+                                            name="simple-controlled"
+                                            value={akyValue}
+                                            onChange={(event, newValue) => {
+                                            setAkyValue(newValue);
+                                            updateRatingAky(newValue)
+                                            alert("Vote Submitted");
+                                            navigate('/home');
+                                            }}
+                                        />
+                                </Box>
+                            </div>
                         </div>
                     </div>
-                    <div style={{display: "flex", marginLeft: "20%" , marginBottom: "2%", fontSize: "30px"}}>
-                        <div style={{marginRight: "7.5%", marginLeft: "-1%", marginTop: "2%"}}>
-                            {aky['UserName']}
+
+                    <div className='movie'>
+                        <Player fluid={false} src={'https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fdarklady%40gmail.com%2Fdragonflight-65f78732-8a9d-43a6-a1c7-9332aa72e4aa?alt=media&token=a653f9b3-9bc5-4004-8e3f-0bf56939c95f'}>
+                            <BigPlayButton position="center" />
+                        </Player>
+                    </div>
+                    <div className='center'>
+                        <div className="movieBorder">
                         </div>
-                        <div style={{marginRight: "3.5%", marginLeft: "23%", marginTop: "2%"}}>
-                            {aky['Rating'].toFixed(2)}
+                        <div className='movieText'>
+                            <div className='movieTextCreator'>
+                                CREATOR
+                            </div>
+                            <div className='movieTextUserRating'>
+                                USER RATING
+                            </div>
+                            <div className='movieTextRateMovie'>
+                                RATE THIS MOVIE
+                            </div>
                         </div>
-                        <div style={{marginLeft: "30%", marginTop: "2%"}}>
-                            <Box sx={{'& > legend': { mt: 3 }}}>
-                                    <Rating
-                                        name="simple-controlled"
-                                        value={akyValue}
-                                        onChange={(event, newValue) => {
-                                        window.localStorage.setItem('newValue', JSON.stringify(newValue));
-                                        updateRatingAky(newValue);
-                                        alert("Vote Submitted");
-                                        navigate("/home");
-                                        }}
-                                    />
-                            </Box>
+                        <div className='movieTextWhite'>
+                            <div className='movieTextUsername'>
+                                {darkLady['UserName']}
+                            </div>
+                            <div className='movieTextRating'>
+                                {darkLady['Rating'].toPrecision(3)}
+                            </div>
+                            <div className='movieRatingSystem'>
+                                <Box sx={{'& > legend': { mt: 3 }}}>
+                                        <Rating
+                                            name="simple-controlled"
+                                            value={darkLadyValue}
+                                            onChange={(event, newValue) => {
+                                            setDarkLadyValue(newValue);
+                                            updateRatingDarkLady(newValue)
+                                            alert("Vote Submitted");
+                                            navigate('/home');
+                                            }}
+                                        />
+                                </Box>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br> 
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>                
-            <div className="topRated">
-            <Player fluid={false} width={"20%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fdarklady%40gmail.com%2Fasdasda-13639cb2-33cf-4713-95d4-42efa1bc8fd3?alt=media&token=47278f48-448a-4338-9c27-6a7ca28ec1b5"}>
-                <BigPlayButton position="center" />
-            </Player>
-                <div style={{width: "80%"}}>
-                    <div style={{ color: "#cfc9b3", fontFamily: "DM Sans", display: "flex", marginLeft: "10%", marginTop: "2%", borderBottom: "3px solid #cfc9b3", fontSize: "35px"}}>
-                        <div style={{marginRight: "19%", marginLeft: "7%", marginBottom: "2%"}}>
-                            Creator
-                        </div>
-                        <div style={{marginRight: "17%", whiteSpace: 'nowrap' }}>
-                            User Rating
-                        </div>
-                        <div style={{ whiteSpace: 'nowrap' }}>
-                            Rate This Movie
-                        </div>
+
+                    <div className='movie'>
+                        <Player fluid={false} src={'https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fsnowman%40gmail.com%2Fspider%20man-b5b1619c-7ff8-4241-b47e-a370d8413369?alt=media&token=eee1fd3f-a0a0-4343-8262-8afae7e3f7b2'}>
+                            <BigPlayButton position="center" />
+                        </Player>
                     </div>
-                    <div style={{display: "flex", marginLeft: "20%" , marginBottom: "2%", fontSize: "30px"}}>
-                        <div style={{marginRight: "3.5%", marginLeft: "-4.5%", marginTop: "2%"}}>
-                            {darkLady['UserName']}
+                    <div className='center'>
+                        <div className="movieBorder">
                         </div>
-                        <div style={{marginRight: "3.6%", marginLeft: "23%", marginTop: "2%"}}>
-                            {darkLady['Rating'].toFixed(2)}
+                        <div className='movieText'>
+                            <div className='movieTextCreator'>
+                                CREATOR
+                            </div>
+                            <div className='movieTextUserRating'>
+                                USER RATING
+                            </div>
+                            <div className='movieTextRateMovie'>
+                                RATE THIS MOVIE
+                            </div>
                         </div>
-                        <div style={{marginLeft: "30%", marginTop: "2%"}}>
-                            <Box sx={{'& > legend': { mt: 3 }}}>
-                                    <Rating
-                                        name="simple-controlled"
-                                        value={darkLadyValue}
-                                        onChange={(event, newValue) => {
-                                        updateRatingDarkLady(newValue);
-                                        alert("Vote Submitted");
-                                        navigate("/home");
-                                        }}
-                                    />
-                            </Box>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <div className="topRated">
-            <Player fluid={false} width={"20%"} src={"https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fyellowsnowman%40gmail.com%2Faaa-7b1d9a08-140e-4ba4-ac5d-2c13b9d233a5?alt=media&token=ab9f82ff-c0f6-4f6e-a7c2-827e705f9933"}>
-                <BigPlayButton position="center" />
-            </Player>
-                <div style={{width: "80%"}}>
-                    <div style={{ color: "#cfc9b3", fontFamily: "DM Sans", display: "flex", marginLeft: "10%", marginTop: "2%", borderBottom: "3px solid #cfc9b3", fontSize: "35px"}}>
-                        <div style={{marginRight: "19%", marginLeft: "7%", marginBottom: "2%"}}>
-                            Creator
-                        </div>
-                        <div style={{marginRight: "17%", whiteSpace: 'nowrap' }}>
-                            User Rating
-                        </div>
-                        <div style={{ whiteSpace: 'nowrap' }}>
-                            Rate This Movie
-                        </div>
-                    </div>
-                    <div style={{display: "flex", marginLeft: "20%" , marginBottom: "2%", fontSize: "30px"}}>
-                        <div style={{marginRight: "-1%", marginLeft: "-9%", marginTop: "2%"}}>
-                            {yellowSnow['UserName']}
-                        </div>
-                        <div style={{marginRight: "3.6%", marginLeft: "23%", marginTop: "2%"}}>
-                            {yellowSnow['Rating'].toFixed(2)}
-                        </div>
-                        <div style={{marginLeft: "30%", marginTop: "2%"}}>
-                            <Box sx={{'& > legend': { mt: 3 }}}>
-                                <Rating
-                                        name="simple-controlled"
-                                        value={yellowSnowValue}
-                                        onChange={(event, newValue) => {
-                                        updateRatingYellowSnow(newValue);
-                                        alert("Vote Submitted");
-                                        navigate("/home");
-                                        }}
-                                    />
-                            </Box>
+                        <div className='movieTextWhite'>
+                            <div className='movieTextUsername'>
+                                {snowMan['UserName']}
+                            </div>
+                            <div className='movieTextRating'>
+                                {snowMan['Rating'].toPrecision(3)}
+                            </div>
+                            <div className='movieRatingSystem'>
+                                <Box sx={{'& > legend': { mt: 3 }}}>
+                                        <Rating
+                                            name="simple-controlled"
+                                            value={snowManValue}
+                                            onChange={(event, newValue) => {
+                                            setSnowManValue(newValue);
+                                            updateRatingSnowMan(newValue)
+                                            alert("Vote Submitted");
+                                            navigate('/home');
+                                            }}
+                                        />
+                                </Box>
+                            </div>
                         </div>
                     </div>
                 </div>

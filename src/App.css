@@ -92,74 +92,196 @@
 }
 
 .background {
-    background: fixed;
     background-image:url(
     "./components/images/background.jpg");
-    background-size: 2000px 1000px;
-    height: 1000px;
-    margin-top: -120px;
-    background-repeat: no-repeat;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center; 
 }
 
 .homeComponent {
-    position: absolute;
+    text-align: center;
+    align-items: center;
     color: white;
-    top: 35%;
-    left: 34%;
+    margin-top: 200px;
 }
 
 .contact {
-    position: absolute;
-}
-
-.contactPosition {
-    position: absolute;
-    margin-top: 5%;
+    color: white;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    width: 40%;
+    padding: 10px;
 }
 
 .contactTitle {
-    position: absolute;
-    color: white;
-    font-family: 'DM-Sans';
-    font-weight: bold;
-    font-size: 40px;
-    margin-top: 13%;
-    margin-left: 44%
+    font-size: 50px;
+    margin-top: 100px;
 }
 
-.contactTextLeft {
-    white-space: 'nowrap';
-    margin-top: 340px;
-    margin-left: 470px;
-    color: #ef5651;
-    font-family: 'DM-Sans';
-    font-weight: bold;
-}
-
-.contactTextRight {
-    white-space: 'nowrap';
-    margin-top: 340px;
-    margin-left: 1200px;
-    color: #ef5651;
-    font-family: 'DM-Sans';
-    font-weight: bold;
-}
-
-
-.topRated {
-    width: 80%;
-    position: absolute;
-    color: white;
-    margin-left: 10%;
-    margin-top: 15%;
+.contactComponent {
     display: flex;
 }
 
-.userProfile {
-    position: absolute;
-    margin-top: 5%;
+.userProfileDetails {
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 100px;
+    min-width: 100%;
+    height: 230px;
+    display: inline-block;
+}
+
+.userProfileLogo {
+    border-radius: 50%;
+    border: 5px solid #ef5651;
+    padding: 5px;
+    width: 170px;
+    height: 170px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.userProfileCenterLeft {
+    text-align: left;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.userProfileCenterRight {
+    text-align: right;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.userProfileMyProfile {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ef5651;
+    margin-top: -170px;
+    margin-left: 200px;
+    font-family: "DB SANS";
+}
+
+.userProfileName {
+    font-size: 30px;
     color: white;
-    width: 60%;
+    margin-left: 200px;
+    margin-top: -5px;
+    font-family: "DB SANS";
+}
+
+.userProfileEmail {
+    font-size: 30px;
+    color: white;
+    margin-top: -10px;
+    margin-left: 200px;
+    font-family: "DB SANS";
+}
+
+.userProfileUsername {
+    display: flex;
+    justify-content: right;
+    font-size: 50px;
+    font-family: "DB SANS";
+    margin-top: -174px;
+}
+
+.userProfileRating {
+    display: flex;
+    justify-content: right;
+    font-size: 50px;
+    font-family: "DB SANS";
+    margin-top: -125px;
+}
+
+.movieComponent {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    display: inline-block;
+}
+
+.movie {
+    margin: auto;
+    padding: 10px;
+}
+
+
+.center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.movieBorder {
+    color: white;
+    border-bottom: 4px solid #F0E7B9;
+    margin-top: -150px;
+    margin-left: 420px;
+}
+
+.movieText {
+    color: #F0E7B9;
+    font-family: "DB SANS";
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.movieTextWhite {
+    color: white;
+    font-family: "DB SANS";
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.movieTextCreator {
+    margin-top: -65px;
+    margin-left: -250px;
+}
+
+.movieTextUserRating {
+    margin-top: -45px;
+    margin-left: 300px;
+}
+
+.movieTextRateMovie {
+    margin-top: -45px;
+    margin-left: 970px;
+}
+
+.movieTextUsername {
+    margin-top: 45px;
+    margin-left: -250px;
+}
+
+.movieTextRating {
+    margin-top: -45px;
+    margin-left: 300px;
+}
+
+.movieRatingSystem {
+    margin-top: -45px;
+    margin-left: 970px;
+}
+
+.topRated {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.topRatedTitle {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: #F0E7B9;
+    font-family: "DB SANS";
+    font-weight: bold;
+    font-size: 50px;
 }
 
 .whiteBackground {

@@ -34,7 +34,7 @@ export default function YMoovie() {
         const db = getFirestore(app);
         const docRef1 = doc(db, "userData", 'aky@gmail.com');
         const docRef2 = doc(db, "userData", 'darklady@gmail.com');
-        const docRef3 = doc(db, "userData", 'yellowsnowman@gmail.com');
+        const docRef3 = doc(db, "userData", 'snowman@gmail.com');
         const docSnap1 = await getDoc(docRef1);
         const docSnap2 = await getDoc(docRef2);
         const docSnap3 = await getDoc(docRef3);
@@ -48,7 +48,7 @@ export default function YMoovie() {
 
 
     return(
-        <div>
+        <div className='background'>
             <NavBar statusLogin={statusLogin}/>
             <div>
                 <Routes>
