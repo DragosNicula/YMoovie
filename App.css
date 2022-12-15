@@ -1,0 +1,376 @@
+.background {
+    background-image:url(
+    "./components/images/background.jpg");
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center; 
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-between;
+    background-color: transparent;
+    gap: 100px;
+    height: 120px;
+    border-bottom: 2px solid #d2b891;
+}
+
+.navLogo {
+    width: 200px;
+    height: 40px;
+}
+
+.navButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+    white-space: nowrap;
+    column-gap: 30px;
+    font-size: 20px;
+    font-family: "Monsterrat";
+    margin-right: -200px;
+}
+
+.navTextActive {
+    background: #ef5651;
+    border: 10px solid #ef5651;
+    border-radius: 5%;
+}
+
+.navText {
+    background: transparent;
+}
+
+.navText:hover {
+    background: #ef5651;
+    border: 10px solid #ef5651;
+    border-radius: 5%;
+}
+
+.loginCard {
+    position: absolute;
+    top: 20%;
+    left: 34%;
+    width: 30%;
+    border-radius: 10px;
+    border: solid;
+    border-color: #ef5651;
+}
+
+.loginLogo {
+    margin: auto;
+    width: 30%;
+}
+
+.loginTitle {
+    margin: auto;
+    width: 80%;
+}
+
+.loginInput {
+    margin: auto;
+    width: 80%;
+}
+
+.registerCard {
+    position: absolute;
+    top: 20%;
+    left: 34%;
+    width: 30%;
+    border-radius: 10px;
+    border: solid;
+    border-color: #ef5651;
+}
+
+.registerLogo {
+    margin: auto;
+    width: 30%;
+}
+
+.registerTitle {
+    margin: auto;
+    width: 80%;
+}
+
+.registerInput {
+    margin: auto;
+    width: 80%;
+}
+
+.addMovieCard {
+    position: fixed;
+    top: 20%;
+    left: 34%;
+    width: 30%;
+    border-radius: 10px;
+    border: solid;
+    border-color: #ef5651;
+}
+
+.addMovieLogo {
+    margin: auto;
+    width: 30%;
+}
+
+.addMovieTitle {
+    margin: auto;
+    width: 80%;
+}
+
+.addMovieInput {
+    margin: auto;
+    width: 80%;
+}
+
+
+
+.homeComponent {
+    text-align: center;
+    align-items: center;
+    color: white;
+    margin-top: 200px;
+}
+
+.contact {
+    color: white;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+}
+
+.contactTitle {
+    font-size: 50px;
+    margin-top: 100px;
+}
+
+.contactComponent {
+    display: flex;
+}
+
+.userProfileDetails {
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 100px;
+    min-width: 100%;
+    height: 230px;
+    display: inline-block;
+}
+
+.userProfileLogo {
+    border-radius: 50%;
+    border: 5px solid #ef5651;
+    padding: 5px;
+    width: 170px;
+    height: 170px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.userProfileCenterLeft {
+    text-align: left;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.userProfileCenterRight {
+    text-align: right;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.userProfileMyProfile {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ef5651;
+    margin-top: -170px;
+    margin-left: 200px;
+    font-family: "DB SANS";
+}
+
+.userProfileName {
+    font-size: 30px;
+    color: white;
+    margin-left: 200px;
+    margin-top: -5px;
+    font-family: "DB SANS";
+}
+
+.userProfileEmail {
+    font-size: 30px;
+    color: white;
+    margin-top: -10px;
+    margin-left: 200px;
+    font-family: "DB SANS";
+}
+
+.userProfileUsername {
+    display: flex;
+    justify-content: right;
+    font-size: 50px;
+    font-family: "DB SANS";
+    margin-top: -174px;
+}
+
+.userProfileRating {
+    display: flex;
+    justify-content: right;
+    font-size: 50px;
+    font-family: "DB SANS";
+    margin-top: -125px;
+}
+
+.movieComponent {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    display: inline-block;
+}
+
+.movie {
+    margin: auto;
+    padding: 10px;
+}
+
+
+.center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.movieBorder {
+    color: white;
+    border-bottom: 4px solid #d2b891;
+    margin-top: -150px;
+    margin-left: 420px;
+}
+
+.movieText {
+    color: #d2b891;
+    font-family: "DB SANS";
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.movieTextWhite {
+    color: white;
+    font-family: "DB SANS";
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.movieTextCreator {
+    margin-top: -65px;
+    margin-left: -250px;
+}
+
+.movieTextUserRating {
+    margin-top: -45px;
+    margin-left: 300px;
+}
+
+.movieTextRateMovie {
+    margin-top: -45px;
+    margin-left: 970px;
+}
+
+.movieTextUsername {
+    margin-top: 45px;
+    margin-left: -250px;
+}
+
+.movieTextRating {
+    margin-top: -45px;
+    margin-left: 300px;
+}
+
+.movieRatingSystem {
+    margin-top: -45px;
+    margin-left: 970px;
+}
+
+.userProfileParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.topRatedParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    margin: auto
+}
+
+.topRatedTitle {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    color: #F0E7B9;
+    font-family: "DB SANS";
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.topRatedChildren {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 30px;
+    white-space: nowrap;
+}
+
+.topRatedItem2 {
+    flex-shrink: 3;
+    font-family: "DB SANS";
+    font-size: 30px;
+    text-align: center;
+}
+
+.table1Item2 {
+    border-bottom: 2px solid #F0E7B9;
+    color: #F0E7B9;
+}
+
+.table1Column {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.table2Item2 {
+    color: white;
+}
+
+.table2Column {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.whiteBackground {
+    background-color: rgba(255,255,255,0.5);
+}
+
+  
