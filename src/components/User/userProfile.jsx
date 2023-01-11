@@ -30,7 +30,6 @@ export function UserProfile(props) {
         })
     }, [])
 
-    
     async function updateField() {
         console.log(value);
         await updateDoc(updateFields, {
@@ -82,50 +81,40 @@ export function UserProfile(props) {
             <div className='movieComponent'>
             {moviesList.map((url) => {
                     return (
-                    <div> 
-                        <div className='movie'>
-                            <Player fluid={false} src={url}>
-                                <BigPlayButton position="center" />
-                            </Player>
-                        </div>
-                        <div className='center'>
-                            <div className="movieBorder">
-                            </div>
-                            <div className='movieText'>
-                                <div className='movieTextCreator'>
-                                    CREATOR
+                        <div className='userProfileParent'>
+                            <div className='topRatedChildren'>
+                                <div className='topRatedItem1'>
+                                    <Player fluid={false} src={url}>
+                                        <BigPlayButton position="center" />
+                                    </Player>
                                 </div>
-                                <div className='movieTextUserRating'>
-                                    USER RATING
-                                </div>
-                                <div className='movieTextRateMovie'>
-                                    RATE THIS MOVIE
-                                </div>
-                            </div>
-                            <div className='movieTextWhite'>
-                                <div className='movieTextUsername'>
-                                    {user['UserName']}
-                                </div>
-                                <div className='movieTextRating'>
-                                    {user['Rating'].toPrecision(3)}
-                                </div>
-                                <div className='movieRatingSystem'>
-                                    <Box sx={{'& > legend': { mt: 3 }}}>
-                                            <Rating
-                                                name="simple-controlled"
-                                                value={value}
-                                                onChange={(event, newValue) => {
-                                                setValue(newValue);
-                                                updateField();
-                                                alert("Vote Submitted");
-                                                navigate('/home');
-                                                }}
-                                            />
-                                    </Box>
-                                </div>
+                                <table className='topRatedItem2'>
+                                    <tr className='table1Item2'>
+                                        <th className='table1Column'>CREATOR</th>
+                                        <th className='table1Column'>USER RATING</th>
+                                        <th style={{paddingRight: "40px"}}>RATE THIS MOVIE</th>
+                                    </tr>
+                                    <tr className='table2Item2'>
+                                        <th className='table2Column'>{user['UserName']}</th>
+                                        <th className='table2Column'>{user['Rating'].toFixed(2)}</th>
+                                        <th style={{padingRight: "40px"}}>
+                                            <Box sx={{'& > legend': { mt: 3 }}}>
+                                                    <Rating
+                                                        name="simple-controlled"
+                                                        value={value}
+                                                        onChange={(event, newValue) => {
+                                                        setValue(newValue);
+                                                        updateField(newValue)
+                                                        alert("Vote Submitted");
+                                                        navigate('/home');
+                                                        }}
+                                                    />
+                                            </Box>
+                                        </th>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-                    </div>
                     )
                 })}
             </div>

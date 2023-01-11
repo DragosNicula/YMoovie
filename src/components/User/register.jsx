@@ -64,7 +64,7 @@ export function Register(props) {
     }
 
     return(
-        <div className="background">
+        <div>
             <div className="registerCard">
                 <Card >
                     <Card.Body>

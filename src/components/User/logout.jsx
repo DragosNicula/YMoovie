@@ -2,6 +2,8 @@ import React from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import { app } from '../../firebase.js';
 import Button from 'react-bootstrap/Button';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,7 +23,7 @@ export function LogOut() {
 
     return(
         <div>
-           <Button style={{marginTop: "35%", backgroundColor: "#ef5651", borderColor: "#ef5651"}} onClick={() => logOut()}>LogOut</Button>
+            <Nav.Link className='navText' style={{color: "white"}} onClick={() => logOut()}>LOGOUT</Nav.Link>
         </div>
     )
 }

@@ -41,7 +41,7 @@ export function Login(props) {
     }
     
     return(
-        <div className="background">
+        <div>
             <div className="loginCard">
                 <Card>
                     <Card.Body>

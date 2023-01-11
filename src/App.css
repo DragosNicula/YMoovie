@@ -1,3 +1,62 @@
+.background {
+    background-image:url(
+    "./components/images/background.jpg");
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center; 
+}
+
+.navBar {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-between;
+    background-color: transparent;
+    gap: 100px;
+    height: 120px;
+    border-bottom: 2px solid #d2b891;
+}
+
+.navButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+    white-space: nowrap;
+    column-gap: 30px;
+    font-size: 20px;
+    font-family: "Monsterrat";
+    margin-right: -200px;
+}
+
+.navLogo {
+    width: 200px;
+    height: 40px;
+}
+
+.navTextActive {
+    background: #ef5651;
+    border: 10px solid #ef5651;
+    border-radius: 5%;
+}
+
+.navText {
+    background: transparent;
+}
+
+.navText:hover {
+    background: #ef5651;
+    border: 10px solid #ef5651;
+    border-radius: 10%;
+}
+
 .loginCard {
     position: absolute;
     top: 20%;
@@ -10,7 +69,7 @@
 
 .loginLogo {
     margin: auto;
-    width: 30%;
+    width: 45%;
 }
 
 .loginTitle {
@@ -35,7 +94,7 @@
 
 .registerLogo {
     margin: auto;
-    width: 30%;
+    width: 45%;
 }
 
 .registerTitle {
@@ -49,7 +108,7 @@
 }
 
 .addMovieCard {
-    position: fixed;
+    position: absolute;
     top: 20%;
     left: 34%;
     width: 30%;
@@ -60,7 +119,7 @@
 
 .addMovieLogo {
     margin: auto;
-    width: 30%;
+    width: 45%;
 }
 
 .addMovieTitle {
@@ -73,39 +132,18 @@
     width: 80%;
 }
 
-.navBar {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border-bottom: 2px solid grey;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Montserrat';
-}
 
-.navBarLogo {
-    margin-right: 100%;
-    margin-top: 7%;
-    width: 35%
-    
-}
-
-.background {
-    background-image:url(
-    "./components/images/background.jpg");
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    background-size: cover;
-    background-position: center; 
-}
 
 .homeComponent {
     text-align: center;
     align-items: center;
+    font-size: 60px;
     color: white;
     margin-top: 200px;
+}
+
+.homeComponentButton {
+    margin-top: -30px;
 }
 
 .contact {
@@ -115,15 +153,39 @@
     margin: auto;
     width: 40%;
     padding: 10px;
+    font-size: 50px;
 }
 
 .contactTitle {
-    font-size: 50px;
     margin-top: 100px;
 }
 
-.contactComponent {
+.contactImage {
+    width: 50px;
+}
+
+.contactComponent1 {
+    margin-top: 100px;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.contactComponent2 {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.contactImage {
+    width: 75px;
 }
 
 .userProfileDetails {
@@ -220,13 +282,13 @@
 
 .movieBorder {
     color: white;
-    border-bottom: 4px solid #F0E7B9;
+    border-bottom: 4px solid #d2b891;
     margin-top: -150px;
     margin-left: 420px;
 }
 
 .movieText {
-    color: #F0E7B9;
+    color: #d2b891;
     font-family: "DB SANS";
     font-weight: bold;
     font-size: 30px;
@@ -269,23 +331,246 @@
     margin-left: 970px;
 }
 
-.topRated {
+.userProfileParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
     margin: auto;
-    width: 90%;
-    padding: 10px;
+    padding-top: 50px;
+}
+
+.topRatedParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
 }
 
 .topRatedTitle {
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 100px;
     color: #F0E7B9;
     font-family: "DB SANS";
     font-weight: bold;
     font-size: 50px;
 }
 
+.topRatedChildren {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 30px;
+    
+}
+
+.topRatedTable {
+    flex-shrink: 3;
+    font-family: "DB SANS";
+    font-size: 30px;
+    text-align: center;
+}
+
+.table1 {
+    border-bottom: 2px solid #F0E7B9;
+    color: #F0E7B9;
+}
+
+.table1Column1 {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.table1Column2 {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.table1Column3 {
+    padding-right: 40px;
+}
+
+.table2Item2 {
+    color: white;
+}
+
+.table2Column1 {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.table2Column2 {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
 .whiteBackground {
     background-color: rgba(255,255,255,0.5);
 }
 
+@media all and (max-width: 1500px) {
+
+    .navBar {
+        justify-content: center;
+        column-gap: 40px;
+    }
+
+    .navLogo {
+        margin-left: -100px;
+    }
+
+    .navButtons {
+        flex-direction: center;
+        column-gap: 10px;
+    }
+
+    .navText:hover {
+        background: #ef5651;
+        border: 3px solid #ef5651;
+        border-radius: 10%;
+    }
+
+    .topRatedVideo {
+        margin-top: -10px;
+    }
+
+    .topRatedTitle {
+        margin-top: 100px;
+    }
+    
+    .loginCard {
+        margin-top: 50px;
+    }
+
+    .registerCard {
+        margin-top: 50px;
+    }
+
+    .addMovieCard {
+        width: 30%;
+        margin-top: 50px;
+    }
+
+    .homeComponent {
+        font-size: 50px;
+        margin-top: 70px;
+    }
+
+    .contact {
+        font-size: 30px;
+    }
+
+    .contactTitle {
+        margin-top: 35px;
+    }
+
+    .contactComponent1 {
+        margin-top: 50px;
+    }
+}
+
+@media all and (max-width: 1100px) {
+    .navBar {
+        height: 330px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        margin-left: -210px;
+        row-gap: 30px;
+        border-bottom: 2px solid #d2b891;
+    }
+
+    .navLogo {
+        margin-top: 10px;
+        margin-left: 65px;
+        margin-bottom: 5px;
+    }
+
+    .navButtons {
+        flex-direction: column;
+        row-gap: 2px
+    }
+
+    .navText:hover {
+        background: #ef5651;
+        border: 1px solid #ef5651;
+        border-radius: 15%;
+    }
+
+    .topRatedTitle {
+        margin-top: 20px;
+        font-size: 30px;
+    }
+
+    .topRatedVideo {
+        margin-bottom: 20px;
+    }
+
+    .topRatedTable {
+        font-size: 15px;
+    }
+
+    .ratingSystemPos {
+        margin-left: -35px;
+    }
+
+    .loginCard {
+        top: 400px;
+    }
+
+    .registerCard {
+        top: 400px;
+    }
+
+    .addMovieCard {
+        top: 400px;
+    }
+
+    .homeComponent {
+        margin-top: 30px;
+    }
+    
+    .contactTitle {
+        margin-top: 10px;
+    }
+    .contactComponent1 {
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .contactComponent2 {
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .contactImage {
+        width: 50px;
+    }
+
+}
+
+@media all and (max-width: 760px) {
+
+    .topRatedTitle {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    .topRatedTable {
+        font-size: 12px;
+        justify-content: space-evenly;
+    }
+}
   

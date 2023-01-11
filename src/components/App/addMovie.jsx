@@ -40,7 +40,7 @@ export function AddMovie(props) {
 
 
     return(
-        <div className="background">
+        <div>
             <div className="addMovieCard">
                 <Card >
                     <Card.Body>
