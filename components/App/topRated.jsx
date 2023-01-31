@@ -48,28 +48,28 @@ export function TopRated() {
 
     return(
         <div>
-            <div className='topRatedTitle'>
-                TOP RATED USERS
-            </div>
-            <div style={{marginTop: "150px"}}>
+            <div className='topRated'>
+                <div className='topRatedTitle'>
+                    TOP RATED USERS
+                </div>
                 <div className='topRatedParent'>
                     <div className='topRatedChildren'>
-                        <div className='topRatedItem1'>
-                            <Player fluid={false} src={'https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Faky%40gmail.com%2Fnfs-9da66b84-3c4f-4602-ab55-fab0eecdd626?alt=media&token=ec77099c-61df-4ae0-be15-835482b89a1f'}>
-                                <BigPlayButton position="center" />
-                            </Player>
+                        <div className='topRatedVideo'>
+                            <video controls resizeMode='contain'>
+                                <source src="https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Faky%40gmail.com%2Fnfs-9da66b84-3c4f-4602-ab55-fab0eecdd626?alt=media&token=ec77099c-61df-4ae0-be15-835482b89a1f" type="video/mp4"/>
+                            </video>
                         </div>
-                        <table className='topRatedItem2'>
-                            <tr className='table1Item2'>
-                                <th className='table1Column'>CREATOR</th>
-                                <th className='table1Column'>USER RATING</th>
-                                <th style={{paddingRight: "40px"}}>RATE THIS MOVIE</th>
+                        <table className='topRatedTable'>
+                            <tr className='table1'>
+                                <th className='table1Column1'>CREATOR</th>
+                                <th className='table1Column2'>USER RATING</th>
+                                <th className='table1Column3'>RATE THIS MOVIE</th>
                             </tr>
                             <tr className='table2Item2'>
-                                <th className='table2Column'>{aky['UserName']}</th>
-                                <th className='table2Column'>{aky['Rating'].toFixed(2)}</th>
-                                <th style={{padingRight: "40px"}}>
-                                    <Box sx={{'& > legend': { mt: 3 }}}>
+                                <th className='table2Column1'>{aky['UserName']}</th>
+                                <th className='table2Column2'>{aky['Rating'].toFixed(2)}</th>
+                                <th>
+                                    <Box className="ratingSystemPos" sx={{'& > legend': { mt: 3 }}}>
                                             <Rating
                                                 name="simple-controlled"
                                                 value={akyValue}
@@ -87,22 +87,22 @@ export function TopRated() {
                     </div>
 
                     <div className='topRatedChildren'>
-                        <div className='topRatedItem1'>
-                            <Player fluid={false} src={'https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fdarklady%40gmail.com%2Fdragonflight-65f78732-8a9d-43a6-a1c7-9332aa72e4aa?alt=media&token=a653f9b3-9bc5-4004-8e3f-0bf56939c95f'}>
-                                <BigPlayButton position="center" />
-                            </Player>
+                        <div className='topRatedVideo'>
+                            <video controls>
+                                <source src="https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fdarklady%40gmail.com%2Fdragonflight-65f78732-8a9d-43a6-a1c7-9332aa72e4aa?alt=media&token=a653f9b3-9bc5-4004-8e3f-0bf56939c95f" type="video/mp4"/>
+                            </video>
                         </div>
-                        <table className='topRatedItem2'>
-                            <tr className='table1Item2'>
-                                <th className='table1Column'>CREATOR</th>
-                                <th className='table1Column'>USER RATING</th>
-                                <th style={{paddingRight: "40px"}}>RATE THIS MOVIE</th>
+                        <table className='topRatedTable'>
+                            <tr className='table1'>
+                                <th className='table1Column1'>CREATOR</th>
+                                <th className='table1Column2'>USER RATING</th>
+                                <th className='table1Column3'>RATE THIS MOVIE</th>
                             </tr>
                             <tr className='table2Item2'>
-                                <th className='table2Column'>{darkLady['UserName']}</th>
-                                <th className='table2Column'>{darkLady['Rating'].toFixed(2)}</th>
-                                <th style={{padingRight: "40px"}}>
-                                <Box sx={{'& > legend': { mt: 3 }}}>
+                                <th className='table2Column1'>{darkLady['UserName']}</th>
+                                <th className='table2Column2'>{darkLady['Rating'].toFixed(2)}</th>
+                                <th>
+                                <Box className="ratingSystemPos" sx={{'& > legend': { mt: 3 }}}>
                                             <Rating
                                                 name="simple-controlled"
                                                 value={darkLadyValue}
@@ -119,22 +119,22 @@ export function TopRated() {
                         </table>
                     </div>
                     <div className='topRatedChildren' style={{marginBottom: "100px"}}>
-                        <div className='topRatedItem1'>
-                            <Player fluid={false} src={'https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fsnowman%40gmail.com%2Fspider%20man-b5b1619c-7ff8-4241-b47e-a370d8413369?alt=media&token=eee1fd3f-a0a0-4343-8262-8afae7e3f7b2'}>
-                                <BigPlayButton position="center" />
-                            </Player>
+                        <div className='topRatedVideo'>
+                            <video controls>
+                                <source src="https://firebasestorage.googleapis.com/v0/b/ymoovie-a4a92.appspot.com/o/Movies%2Fsnowman%40gmail.com%2Fspider%20man-b5b1619c-7ff8-4241-b47e-a370d8413369?alt=media&token=eee1fd3f-a0a0-4343-8262-8afae7e3f7b2" type="video/mp4"/>
+                            </video>
                         </div>
-                        <table className='topRatedItem2'>
-                            <tr className='table1Item2'>
-                                <th className='table1Column'>CREATOR</th>
-                                <th className='table1Column'>USER RATING</th>
-                                <th style={{paddingRight: "40px"}}>RATE THIS MOVIE</th>
+                        <table className='topRatedTable'>
+                            <tr className='table1'>
+                                <th className='table1Column1'>CREATOR</th>
+                                <th className='table1Column2'>USER RATING</th>
+                                <th className='table1Column3'>RATE THIS MOVIE</th>
                             </tr>
                             <tr className='table2Item2'>
-                                <th className='table2Column'>{snowMan['UserName']}</th>
-                                <th className='table2Column'>{snowMan['Rating'].toFixed(2)}</th>
-                                <th style={{padingRight: "40px"}}>
-                                <Box sx={{'& > legend': { mt: 3 }}}>
+                                <th className='table2Column1'>{snowMan['UserName']}</th>
+                                <th className='table2Column2'>{snowMan['Rating'].toFixed(2)}</th>
+                                <th>
+                                <Box className="ratingSystemPos" sx={{'& > legend': { mt: 3 }}}>
                                             <Rating
                                                 name="simple-controlled"
                                                 value={snowManValue}
