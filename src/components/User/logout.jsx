@@ -23,7 +23,7 @@ export function LogOut() {
 
     return(
         <div>
-            <Nav.Link className='navText' style={{color: "white"}} onClick={() => logOut()}>LOGOUT</Nav.Link>
+            <Nav.Link className='navText' style={{color: "white"}} onClick={() => logOut()}>Sign out</Nav.Link>
         </div>
     )
 }

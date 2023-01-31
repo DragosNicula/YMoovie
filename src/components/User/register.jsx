@@ -73,7 +73,7 @@ export function Register(props) {
                         <br></br>
                         <Card.Title className="registerTitle">
                             <h3>
-                                <strong>Create Your YMoovie Account</strong>
+                                <strong>Create your YMoovie account</strong>
                             </h3>
                         </Card.Title>
                         <br></br>
@@ -99,7 +99,7 @@ export function Register(props) {
                                 <Form.Control type="password" onChange={(event) => setUserPassword(event.target.value)}/>
                             </InputGroup>
                         </div>
-                        <Button style={{backgroundColor: "#ef5651", borderColor: "#ef5651"}} onClick={() => registerUser()}>Register</Button>
+                        <Button style={{backgroundColor: "#00cfff", borderColor: "#00cfff"}} onClick={() => registerUser()}>Register</Button>
                     </Card.Body>
                 </Card>
             </div>
