@@ -9,7 +9,7 @@ export function Contact() {
     return(
         <div className="contact">
             <div className="contactTitle">
-                CONTACT US
+                Contact Us
             </div>
             <div>
                 <div className='contactComponent1'>
@@ -23,11 +23,11 @@ export function Contact() {
                     </div>
                 </div>
                 <div className="contactComponent2">
-                    <div>
+                    <div style={{display: "flex"}}>
                         <img className="contactImage" src={linkedin}/>
                         <a style={{marginLeft: "10px"}}>Y-Moovie</a>
                     </div>
-                    <div>
+                    <div style={{display: "flex", marginRight: "15px"}}>
                         <img className="contactImage" src={phone}/>
                         <a style={{marginLeft: "10px"}}>+123456</a>
                     </div>

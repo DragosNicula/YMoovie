@@ -49,7 +49,7 @@ export function AddMovie(props) {
                         <br></br>
                         <Card.Title className="addMovieTitle">
                             <h3>
-                                <strong>Upload Your Movie</strong>
+                                <strong>Upload your movie</strong>
                             </h3>
                         </Card.Title>
                         <br></br>
@@ -66,7 +66,7 @@ export function AddMovie(props) {
                             <Form.Group controlId="formFile" className="mb-3"> {/* upload */}
                                 <Form.Control type="file" onChange={(event) => setMovieUpload(event.target.files[0])} />
                             </Form.Group>
-                            <Button style={{marginTop: "10px", backgroundColor: "#ef5651", borderColor: "#ef5651"}} onClick={() => uploadMovie()}>Upload Your Movie</Button>
+                            <Button style={{marginTop: "10px", backgroundColor: "#00cfff", borderColor: "#00cfff"}} onClick={() => uploadMovie()}>Upload Your Movie</Button>
                         </div >
                     </Card.Body>
                 </Card>
