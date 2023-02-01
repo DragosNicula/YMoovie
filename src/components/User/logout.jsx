@@ -22,8 +22,6 @@ export function LogOut() {
     }
 
     return(
-        <div>
-            <Nav.Link className='navText' style={{color: "white"}} onClick={() => logOut()}>Sign out</Nav.Link>
-        </div>
+        <a onClick={() => logOut()} style={{color: "white"}} class="btn btn-info" role="button" aria-pressed="true">Logout</a>
     )
 }

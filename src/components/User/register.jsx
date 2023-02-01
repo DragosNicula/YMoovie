@@ -65,43 +65,39 @@ export function Register(props) {
 
     return(
         <div>
-            <div className="registerCard">
-                <Card >
-                    <Card.Body>
-                        <img className="registerLogo" src={logo} />
-                        <br></br>
-                        <br></br>
-                        <Card.Title className="registerTitle">
-                            <h3>
-                                <strong>Create your YMoovie account</strong>
-                            </h3>
-                        </Card.Title>
-                        <br></br>
-                        <div className="registerInput">
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>Username</InputGroup.Text>
-                                <Form.Control type="text" onChange={(event) => setUserName(event.target.value)}/>
-                            </InputGroup>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>First Name</InputGroup.Text>
-                                <Form.Control type="text" onChange={(event) => setFirstName(event.target.value)}/>
-                            </InputGroup>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>Last Name</InputGroup.Text>
-                                <Form.Control type="text" onChange={(event) => setLastName(event.target.value)}/>
-                            </InputGroup>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>Email</InputGroup.Text>
-                                <Form.Control type="text" onChange={(event) => setUserEmail(event.target.value)}/>
-                            </InputGroup>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Text>Password</InputGroup.Text>
-                                <Form.Control type="password" onChange={(event) => setUserPassword(event.target.value)}/>
-                            </InputGroup>
-                        </div>
-                        <Button style={{backgroundColor: "#00cfff", borderColor: "#00cfff"}} onClick={() => registerUser()}>Register</Button>
-                    </Card.Body>
-                </Card>
+            <div class="form-signin w-100 m-auto feature-icon-small d-inline-flex align-items-center justify-content-center">
+                <div style={{width: "500px", border: "2px solid #d2b891", padding: "50px", borderRadius: "20px", marginTop: "50px"}}>
+                    <img className="mb-4" src={logo} style={{width: "170px"}} />
+                    <h1 className="h3 mb-3 fw-normal">Create your YMoovie account</h1>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setUserName(event.target.value)} type="text" className="form-control" id="floatingInput" ></input>
+                        <label for="floatingInput">Username</label>
+                    </div>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setFirstName(event.target.value)} type="text" className="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">First name</label>
+                    </div>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setLastName(event.target.value)} type="text" className="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Last name</label>
+                    </div>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setUserEmail(event.target.value)} type="text" className="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setUserPassword(event.target.value)} type="password" className="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Password</label>
+                    </div>
+                    <br></br>
+                    <button onClick={() => registerUser()} className="w-100 btn btn-lg btn-info" type="submit" style={{color: "white"}}> Sign in</button>
+                    <p className="mt-5 mb-3 text-muted">&copy; 2017-2023</p>
+                </div>
             </div>
         </div>
     )

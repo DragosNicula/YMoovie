@@ -40,38 +40,29 @@ export function AddMovie(props) {
 
 
     return(
-        <div>
-            <div className="addMovieCard">
-                <Card >
-                    <Card.Body>
-                        <img className="addMovieLogo" src={logo} />
-                        <br></br>
-                        <br></br>
-                        <Card.Title className="addMovieTitle">
-                            <h3>
-                                <strong>Upload your movie</strong>
-                            </h3>
-                        </Card.Title>
-                        <br></br>
-                        <div className="addMovieInput"> 
-                            <InputGroup className="mb-3"> {/* title */}
-                                <InputGroup.Text>Movie Title</InputGroup.Text>
-                                <Form.Control type="text" onChange={(event) => setTitle(event.target.value)}/>
-                            </InputGroup>
-                            <InputGroup> {/* description */}
-                                <InputGroup.Text>Description</InputGroup.Text>
-                                <Form.Control as="textarea" aria-label="With textarea" onChange={(event) => setDescription(event.target.value)}/>
-                            </InputGroup>
-                            <br></br>
-                            <Form.Group controlId="formFile" className="mb-3"> {/* upload */}
-                                <Form.Control type="file" onChange={(event) => setMovieUpload(event.target.files[0])} />
-                            </Form.Group>
-                            <Button style={{marginTop: "10px", backgroundColor: "#00cfff", borderColor: "#00cfff"}} onClick={() => uploadMovie()}>Upload Your Movie</Button>
-                        </div >
-                    </Card.Body>
-                </Card>
-                
+
+            <div class="form-signin w-100 m-auto feature-icon-small d-inline-flex align-items-center justify-content-center">
+                <div style={{width: "400px", border: "2px solid #d2b891", padding: "50px", borderRadius: "20px", marginTop: "50px"}}>
+                    <img className="mb-4" src={logo} style={{width: "170px"}} />
+                    <h1 className="h3 mb-3 fw-normal">Upload your movie</h1>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setTitle(event.target.value)} type="text" className="form-control" id="floatingInput" ></input>
+                        <label for="floatingInput">Movie Title</label>
+                    </div>
+                    <br></br>
+                    <div className="form-floating">
+                        <input onChange={(event) => setDescription(event.target.value)} type="text" className="form-control" id="floatingInput"></input>
+                        <label for="floatingInput">Description</label>
+                    </div>
+                    <br></br>
+                    <Form.Group controlId="formFile" className="mb-3"> {/* upload */}
+                        <Form.Control type="file" onChange={(event) => setMovieUpload(event.target.files[0])} />
+                    </Form.Group>
+                    <br></br>
+                    <button onClick={() => uploadMovie()} className="w-100 btn btn-lg btn-info" type="submit" style={{color: "white"}}> Sign in</button>
+                    <p className="mt-5 mb-3 text-muted">&copy; 2017-2023</p>
+                </div>
             </div>
-        </div>
     )
 }
