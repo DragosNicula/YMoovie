@@ -22,7 +22,7 @@ export function Login(props) {
                 props.setStatusEmail(userEmail);
                 alert("Login complete!");
                 navigate("/home");
-                
+                getData();
             })
             .catch((error) => {
                 alert(error.message);

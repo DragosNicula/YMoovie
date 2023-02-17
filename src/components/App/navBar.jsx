@@ -20,7 +20,7 @@ export function NavBar(props) {
                         </a>
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="/home" style={{fontSize: "20px"}} class="nav-link px-2 link-dark">Home</a></li>
-                            <li><a href="/addmovie" style={{fontSize: "20px"}} class="nav-link px-2 link-dark">Add your movie</a></li>
+                            <li><a href="/addmovie" style={{fontSize: "20px"}} class="nav-link px-2 link-dark">Upload Movie</a></li>
                             <li><a href="/toprated" style={{fontSize: "20px"}} class="nav-link px-2 link-dark">Top Rated</a></li>
                             <li><a href="/contact" style={{fontSize: "20px"}} class="nav-link px-2 link-dark">Contact</a></li>
                         </ul>

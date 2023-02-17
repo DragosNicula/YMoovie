@@ -27,6 +27,7 @@ export function AddMovie(props) {
                     const movieRef = ref(storage, path);
                     uploadBytes(movieRef, movieUpload).then(() => {
                         alert("Upload Complete!");
+                        navigate('/home');
                     })
                 }
             } else {
@@ -40,7 +41,6 @@ export function AddMovie(props) {
 
 
     return(
-
             <div class="form-signin w-100 m-auto feature-icon-small d-inline-flex align-items-center justify-content-center">
                 <div style={{width: "400px", border: "2px solid #d2b891", padding: "50px", borderRadius: "20px", marginTop: "50px"}}>
                     <img className="mb-4" src={logo} style={{width: "170px"}} />
@@ -60,7 +60,7 @@ export function AddMovie(props) {
                         <Form.Control type="file" onChange={(event) => setMovieUpload(event.target.files[0])} />
                     </Form.Group>
                     <br></br>
-                    <button onClick={() => uploadMovie()} className="w-100 btn btn-lg btn-info" type="submit" style={{color: "white"}}> Sign in</button>
+                    <button onClick={() => uploadMovie()} className="w-100 btn btn-lg btn-info" type="submit" style={{color: "white"}}> Upload Movie </button>
                     <p className="mt-5 mb-3 text-muted">&copy; 2017-2023</p>
                 </div>
             </div>
