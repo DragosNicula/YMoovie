@@ -47,7 +47,6 @@ export function Home() {
                             <div class="col d-flex flex-column align-items-center gap-2">
                                 <h3 style={{marginLeft: "30px"}} class="fw-bold">Why you should use YMoovie right now ?</h3>
                                 <p class="text-muted">Millions of artists around the world showcase their portfolio work on YMoovie - the home to the world’s best design and creative professionals.</p>
-                                <a href="/register" class="btn btn-outline-info me-2">Register Now</a>
                             </div>
 
                             <div class="col">
