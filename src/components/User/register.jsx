@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../../firebase.js';
 import { useNavigate } from 'react-router-dom';
@@ -16,12 +12,12 @@ export function Register(props) {
     const [userName, setUserName] = useState(null);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
-    const [url, setUrl] = useState();
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
     
     async function updateDataBase() {
         const db = getFirestore(app);
-        const newDoc = await setDoc(doc(db, "userData", userEmail), {
+        const newDoc2 = await setDoc(doc(db, "userData", userEmail), {
             UserName: userName,
             FirstName: firstName,
             LastName: lastName,
@@ -29,6 +25,9 @@ export function Register(props) {
             Rating: 3,
             NumberOfVotes: 1,
             SumOfVotes: 3
+        });
+        const newDoc = await setDoc(doc(db, "userData", userEmail, "movies", "names"), {
+            NameOfVideos: []
         });
     }
 
@@ -50,21 +49,20 @@ export function Register(props) {
             .then((userCredential) => {
                 const user = userCredential.user;
                 props.setStatusEmail(userEmail);
-                alert("Register complete!");
                 navigate("/home");
             })
             .catch((error) => {
-                alert(error.message);
+                setMessage(error.message);
             });
             updateDataBase();
             getData();
         } else {
-            alert('All fields must be filled!');
+            setMessage('All fields must be filled!');
         }
     }
 
     return(
-        <div>
+        <div style={{marginBottom: "120px"}}>
             <div class="form-signin w-100 m-auto feature-icon-small d-inline-flex align-items-center justify-content-center">
                 <div style={{width: "500px", border: "2px solid #d2b891", padding: "50px", borderRadius: "20px", marginTop: "50px"}}>
                     <img className="mb-4" src={logo} style={{width: "170px"}} />
@@ -96,6 +94,12 @@ export function Register(props) {
                     </div>
                     <br></br>
                     <button onClick={() => registerUser()} className="w-100 btn btn-lg btn-info" type="submit" style={{color: "white"}}> Sign in</button>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div className="message">
+                        {message}   
+                    </div>
                     <p className="mt-5 mb-3 text-muted">&copy; 2017-2023</p>
                 </div>
             </div>

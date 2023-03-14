@@ -4,15 +4,13 @@ import { app } from '../../firebase.js'
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import logo from "../images/logoMicNegru.png";
-import share from '../images/share.png';
-import trend from '../images/trend.png';
-import rating from '../images/rating.png';
-import portfolio from '../images/portfolio.png';
+
 
 export function Login(props) {
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
-    const auth = getAuth(app);
+    const [message, setMessage] = useState("");
+    const auth = getAuth(app); 
     const navigate = useNavigate();
 
     function loginUser() {
@@ -20,12 +18,11 @@ export function Login(props) {
             .then((userCredentials) =>{
                 const user = userCredentials.user;
                 props.setStatusEmail(userEmail);
-                alert("Login complete!");
                 navigate("/home");
                 getData();
             })
             .catch((error) => {
-                alert(error.message);
+                setMessage(error.message);
             });
     }
 
@@ -58,6 +55,12 @@ export function Login(props) {
                     </div>
                     <br></br>
                     <button  onClick={() => loginUser()} className="w-100 btn btn-lg btn-info" type="submit" style={{color: "white"}}> Sign in</button>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div className="message">
+                        {message}
+                    </div>
                     <p className="mt-5 mb-3 text-muted">&copy; 2017-2023</p>
                 </div>
             </div>

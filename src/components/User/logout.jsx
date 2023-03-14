@@ -14,7 +14,6 @@ export function LogOut() {
     function logOut() {
         signOut(auth).then(() => {
             navigate('/home')
-            alert("Sign Out Succesfull")
             window.location.reload()
         }).catch((error) => {
             alert(error.message)
