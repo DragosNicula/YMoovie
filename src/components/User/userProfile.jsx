@@ -92,11 +92,11 @@ export function UserProfile(props) {
         setComment("");
     }
 
-    function setCommentToTrue(index) {
+    function showComment(index) {
         commentsStatusArray[index] = true;
     }
 
-    function setCommentToFalse(index) {
+    function hideComment(index) {
         commentsStatusArray[index] = false;
         setForceRender({...forceRender});
     }
@@ -111,7 +111,7 @@ export function UserProfile(props) {
         setAllCommentsToFalse();
         getComments(index);
         if (commentsStatusArray[index] == false) {
-            setCommentToTrue(index);
+            showComment(index);
         }
     }
 
@@ -169,7 +169,7 @@ export function UserProfile(props) {
                                                 {commentsStatusArray[index] == true && (
                                                     <div style= {{marginTop: "-5px", marginLeft: "25px", marginRight: "25px", marginBottom: "25px", border: "1px solid #d2b891", borderRadius: "20px"}}>
                                                         <br></br>
-                                                        <button onClick={() => setCommentToFalse(index)} style={{color: "white", marginBottom: "20px"}} class="btn btn-danger" > Hide Comments </button>
+                                                        <button onClick={() => hideComment(index)} style={{color: "white", marginBottom: "20px"}} class="btn btn-danger" > Hide Comments </button>
                                                         {commentsList.Comments.map((coment, i) => {
                                                             return(
                                                                 <div style={{width: "90%", margin: "auto", paddingBottom: "15px"}}>
